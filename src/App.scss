@@ -1,0 +1,59 @@
+@mixin flex-center($direction, $alignment, $justify){
+  display:flex;
+  flex-direction: $direction;
+  align-items: $alignment;
+  justify-content: $justify;
+}
+.login{
+  @include flex-center(column, center, center);
+  margin: 10vh auto;
+  width: 25vw;
+
+  .input{
+    width: 100%;
+  }
+
+  Button{
+    margin: 20px;
+    width: 100%;
+  }
+}
+
+.authorizedDashboard {
+  @include flex-center(column, left, center);
+  max-width: 65vw;
+  margin: 5vh auto;
+
+    h1{
+      color: #808080;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .cards {
+      margin: 15vh 0;
+      @include flex-center(row, center, space-between);
+    }
+}
+
+.card {
+  max-width: 225px;
+  height: 200px;
+
+  h6{
+    font-weight: 600;
+    padding: 1rem 0;
+  }
+
+}
+
+.soundCard{
+  .MuiCardContent-root{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    max-height: 100px;
+  }
+  p{
+    padding: 0;
+  }
+}

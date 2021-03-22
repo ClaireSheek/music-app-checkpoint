@@ -1,0 +1,88 @@
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10vh auto;
+  width: 25vw;
+}
+
+.login .input {
+  width: 100%;
+}
+
+.login Button {
+  margin: 20px;
+  width: 100%;
+}
+
+.authorizedDashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 65vw;
+  margin: 5vh auto;
+}
+
+.authorizedDashboard h1 {
+  color: #808080;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.authorizedDashboard .cards {
+  margin: 15vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card {
+  max-width: 225px;
+  height: 200px;
+}
+
+.card h6 {
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.soundCard .MuiCardContent-root {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  max-height: 100px;
+}
+
+.soundCard p {
+  padding: 0;
+}
+/*# sourceMappingURL=App.css.map */
