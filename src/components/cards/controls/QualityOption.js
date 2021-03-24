@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -20,11 +20,44 @@ export default function QualityOption(props) {
   const classes = useStyles();
   const [quality, setQuality] = useState('');
 
+
+//With useEffect
+  // const warning = "Music quality is degraded. Increase quality if your connection allows it."
+  // const index = alerts.indexOf(warning)
+
+  // useEffect(() => {
+  //   if (quality === 'low' && index === -1) {
+  //     setAlerts([...alerts, warning])
+  //   } 
+  //   if (index > -1) {
+  //     let newAlerts = alerts 
+  //     newAlerts.splice(index, 1);
+  //     console.log("Quality Alerts:", newAlerts)
+  //     setAlerts(newAlerts)
+  //   }
+  // })
+
+  // const handleChange = (event) => {
+  //   setQuality(event.target.value)
+  // }
+
+//Without useEffect
   const handleChange = (event) => {
     setQuality(event.target.value);
-    if(event.target.value === "low"){
-      setAlerts([...alerts, 'Music quality is degraded. Increase quality if your connection allows it.'])
+    let warning = "Music quality is degraded. Increase quality if your connection allows it."
+    let index = alerts.indexOf(warning)
+
+    let newAlerts = alerts
+
+    if (event.target.value === 'low' && index === -1) {
+      setAlerts([...newAlerts, warning])
+    } 
+    if (index > -1) {
+      newAlerts.splice(index, 1);
+      console.log("Quality Alerts:", newAlerts)
+      setAlerts(newAlerts)
     }
+
   };
 
   return (

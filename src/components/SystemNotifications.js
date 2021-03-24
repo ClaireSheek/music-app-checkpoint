@@ -1,15 +1,15 @@
 import React from 'react'
 
 const SystemNotifications = (props) => {
-  const { alerts } = props
+  // const { alerts } = props
   return (
     <div>
       <h2>System Notifications:</h2>
-      {console.log(alerts)}
+      {console.log("current Notifications", props.alerts)}
       <ol>
-        {alerts.map((alert) => {
+        {props.alerts.map((alert, index) => {
           return (
-            <li>{alert}</li>
+            <li key={index}>{alert}</li>
           )
         })}
       </ol>
