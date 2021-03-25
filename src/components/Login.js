@@ -4,9 +4,6 @@ import Button from '@material-ui/core/Button';
 
 const Login = (props) => {
 
-  console.log(props.handleSubmit)
-
-
   return (
     <form className='login' noValidate autoComplete="off" onSubmit={props.handleSubmit}>
       <TextField className="input" id="standard-basic" label="Username*" />

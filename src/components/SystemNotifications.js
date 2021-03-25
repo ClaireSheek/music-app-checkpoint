@@ -5,7 +5,7 @@ const SystemNotifications = (props) => {
   return (
     <div>
       <h2>System Notifications:</h2>
-      {console.log("current Notifications", props.alerts)}
+      {/* {console.log("current Notifications", props.alerts)} */}
       <ol>
         {props.alerts.map((alert, index) => {
           return (

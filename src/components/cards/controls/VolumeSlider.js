@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
@@ -13,49 +13,22 @@ function valuetext(value) {
 }
 
 export default function VolumeSlider(props) {
-  // const { alerts, setAlerts } = props
-  const [ volume, setVolume ] = useState(0)
+  const { alerts, setAlerts, setVolume } = props
   const classes = useStyles();
-
-  //With useEffect
-  const warning = "Listening to music at a high volume could cause long-term hearing loss."
-  const index = props.alerts.indexOf(warning)
-
-  useEffect(() => {
-    if (volume > 80 && index === -1) {
-      props.setAlerts([...props.alerts, warning])
-      console.log("Too High Alert:", props.alerts)
-
-    } else {
-        if(volume < 80) {
-          let newAlerts = props.alerts
-          newAlerts.splice(index, 1)
-          console.log("Volume Alerts:", newAlerts)
-          props.setAlerts(newAlerts)
-      }
-    }
-
-  }, [props.alerts, volume])
 
   const handleChange = (event, value) => {
     setVolume(value)
-  }
+    let warning = "Listening to music at a high volume could cause long-term hearing loss."
+    let index = alerts.indexOf(warning)
+    let newAlerts = alerts
 
-//Without useEffect
-  // const handleChange = (event, value) => {
-  //   let volume = value
-  //   let warning = "Listening to music at a high volume could cause long-term hearing loss."
-  //   let index = alerts.indexOf(warning)
-
-  //   if (volume > 80 && index === -1) {
-  //     setAlerts([...alerts, warning])
-  //   }
-  //   if(volume < 80) {
-  //     alerts.splice(index, 1)
-  //     console.log("Volume Alerts:", alerts)
-  //     setAlerts(alerts)
-  //   }
-  // };
+    if (value > 80 && index === -1) {
+      setAlerts([...newAlerts, warning])
+    } else if (index > -1) {
+      newAlerts.splice(index, 1)
+      setAlerts(newAlerts)
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -66,7 +39,7 @@ export default function VolumeSlider(props) {
         valueLabelDisplay="auto"
         step={10}
         marks
-        min={10}
+        min={0}
         max={100}
         onChange={handleChange}
       />

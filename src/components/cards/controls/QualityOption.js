@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,32 +16,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function QualityOption(props) {
-  const { alerts, setAlerts } = props
+  const { alerts, setAlerts, quality, setQuality } = props
   const classes = useStyles();
-  const [quality, setQuality] = useState('');
 
 
-//With useEffect
-  // const warning = "Music quality is degraded. Increase quality if your connection allows it."
-  // const index = alerts.indexOf(warning)
-
-  // useEffect(() => {
-  //   if (quality === 'low' && index === -1) {
-  //     setAlerts([...alerts, warning])
-  //   } 
-  //   if (index > -1) {
-  //     let newAlerts = alerts 
-  //     newAlerts.splice(index, 1);
-  //     console.log("Quality Alerts:", newAlerts)
-  //     setAlerts(newAlerts)
-  //   }
-  // })
-
-  // const handleChange = (event) => {
-  //   setQuality(event.target.value)
-  // }
-
-//Without useEffect
   const handleChange = (event) => {
     setQuality(event.target.value);
     let warning = "Music quality is degraded. Increase quality if your connection allows it."
@@ -51,19 +29,16 @@ export default function QualityOption(props) {
 
     if (event.target.value === 'low' && index === -1) {
       setAlerts([...newAlerts, warning])
-    } 
-    if (index > -1) {
-      newAlerts.splice(index, 1);
-      console.log("Quality Alerts:", newAlerts)
-      setAlerts(newAlerts)
+    } else if (index > -1) {
+        newAlerts.splice(index, 1);
+        setAlerts(newAlerts)
     }
-
   };
 
   return (
     <div class='qualitySelector'>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Normal</InputLabel>
+        <InputLabel id="demo-simple-select-label">Quality</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

@@ -4,6 +4,8 @@
   align-items: $alignment;
   justify-content: $justify;
 }
+
+//Login Component
 .login{
   @include flex-center(column, center, center);
   margin: 10vh auto;
@@ -19,6 +21,7 @@
   }
 }
 
+//Dashboard Component
 .authorizedDashboard {
   @include flex-center(column, left, center);
   max-width: 65vw;
@@ -34,26 +37,17 @@
       margin: 15vh 0;
       @include flex-center(row, center, space-between);
     }
+
+    .card {
+      max-width: 225px;
+      height: 200px;
+
+      h6{
+        font-weight: 600;
+        padding: 1rem 0;
+      }
+    }
 }
-
-.card {
-  max-width: 225px;
-  height: 200px;
-
-  h6{
-    font-weight: 600;
-    padding: 1rem 0;
-  }
-
-}
-
-.soundCard{
-  .MuiCardContent-root{
-    padding-bottom: 0;
-    margin-bottom: 0;
-    max-height: 100px;
-  }
-  p{
-    padding: 0;
-  }
-}
+ .MuiCardActions-root {
+   max-height: 20px;
+ }
